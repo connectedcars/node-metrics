@@ -1,8 +1,9 @@
 {
-  "name": "metrics",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@connectedcars/metrics",
+  "version": "0.0.1",
+  "description": "Nodejs/v8 metrics",
+  "main": "build/dist/src/index.js",
+  "types": "build/dist/src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cov": "TZ=UTC jest --coverage=true",
@@ -18,8 +19,20 @@
     "prepack": "npm run build",
     "prepublishOnly": "rm -rf build"
   },
-  "author": "",
-  "license": "ISC",
+  "files": [
+    "build/dist/**/!(*.test).js",
+    "build/dist/**/!(*.test).d.ts"
+  ],
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/connectedcars/node-metrics.git"
+    },
+  "author": "Sune Scheuerlein-Tougaard<sta@connectedcars.dk>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/connectedcars/node-metrics/issues"
+  },
+  "homepage": "https://github.com/connectedcars/node-metrics#readme",
   "devDependencies": {
     "@babel/cli": "7.13.0",
     "@babel/core": "7.13.8",
