@@ -12,13 +12,13 @@ export const disable = (): void => {
 
 // https://nodesource.com/blog/event-loop-utilization-nodejs
 // cumulative duration of time the event loop has been both idle and active as a high resolution milliseconds timer, we convert to seconds
-export interface EventLoopUtilizationMetrics {
+export interface Utilization {
   idle: number
   active: number
   utilization: number
 }
 
-export interface EventloopDelayMetrics {
+export interface Delay {
   min: number
   max: number
   mean: number
@@ -28,13 +28,13 @@ export interface EventloopDelayMetrics {
   percentile99: number
 }
 
-export interface perfHookMetrics {
-  delay: EventloopDelayMetrics
-  utilization: EventLoopUtilizationMetrics
+export interface Metrics {
+  delay: Delay
+  utilization: Utilization
 }
 
 let prevELU: EventLoopUtilization = performance.eventLoopUtilization()
-export const collect = (): perfHookMetrics => {
+export const collect = (): Metrics => {
   //convert nanoseconds to seconds
   const delay = {
     min: histogram.min / 1e9,
@@ -60,6 +60,3 @@ export const collect = (): perfHookMetrics => {
     }
   }
 }
-
-// TODO: GC  https://www.cloudbees.com/blog/understanding-garbage-collection-in-node-js
-// skipping GC for now as it requires using a PerformanceObserver that has a performance penality
