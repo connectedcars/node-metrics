@@ -1,6 +1,6 @@
 {
   "name": "@connectedcars/metrics",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.3-alpha.0",
   "description": "Nodejs/v8 metrics",
   "main": "build/dist/src/index.js",
   "types": "build/dist/src/index.d.ts",
