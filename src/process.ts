@@ -60,11 +60,3 @@ export const collect = (): ProcessMetrics => {
     }
   }
 }
-
-export const enable = (): void => {
-  return
-}
-
-export const disable = (): void => {
-  return
-}

@@ -7,12 +7,10 @@ export interface EnableOptions {
 
 export const enable = (options?: EnableOptions): void => {
   perfHooks.enable(options?.PerfHooks)
-  process.enable()
 }
 
 export const disable = (): void => {
   perfHooks.disable()
-  process.disable()
 }
 
 export interface Metrics {
