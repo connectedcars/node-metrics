@@ -1,26 +1,26 @@
-import * as perfHooks from './perf-hooks'
-import * as process from './process'
+import * as Eventloop from './eventloop'
+import * as Memory from './memory'
 
 export interface EnableOptions {
-  PerfHooks: { monitorEventLoopDelayResolution?: number }
+  Eventloop: { monitorEventLoopDelayResolution?: number }
 }
 
 export const enable = (options?: EnableOptions): void => {
-  perfHooks.enable(options?.PerfHooks)
+  Eventloop.enable(options?.Eventloop)
 }
 
 export const disable = (): void => {
-  perfHooks.disable()
+  Eventloop.disable()
 }
 
 export interface Metrics {
-  process: process.ProcessMetrics
-  perfHooks: perfHooks.perfHookMetrics
+  Memory: Memory.Metrics
+  Eventloop: Eventloop.Metrics
 }
 
 export const collect = (): Metrics => {
   return {
-    process: process.collect(),
-    perfHooks: perfHooks.collect()
+    Memory: Memory.collect(),
+    Eventloop: Eventloop.collect()
   }
 }
