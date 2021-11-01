@@ -59,5 +59,8 @@
   },
   "engines": {
     "node": ">=10.15.0"
+  },
+  "dependencies": {
+    "@connectedcars/logutil": "^4.0.2"
   }
 }

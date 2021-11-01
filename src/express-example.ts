@@ -29,8 +29,4 @@ server.listen(port, hostname, function () {
   console.log(`Server running at http://${hostname}:${port}/`)
 })
 
-Metrics.enable()
-
-setInterval(() => {
-  console.log(Metrics.collect())
-}, 1000)
+Metrics.logNodeMetrics('example', 1000, 1000)
