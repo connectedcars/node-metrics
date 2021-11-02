@@ -18,11 +18,8 @@ export const logNodeMetrics = (serviceName: string, interval = 5000, delay?: num
     metricRegistry.gauge(`${serviceName}/node/process-memory-external`, collectedMetrics.Memory.external)
     metricRegistry.gauge(`${serviceName}/node/process-memory-rss`, collectedMetrics.Memory.rss)
     metricRegistry.gauge(`${serviceName}/node/process-memory-arrayBuffers`, collectedMetrics.Memory.arrayBuffers)
-    metricRegistry.cumulative(
-      `${serviceName}/node/eventloop-utilization-idle`,
-      collectedMetrics.Eventloop.utilization.idle
-    )
-    metricRegistry.cumulative(
+    metricRegistry.gauge(`${serviceName}/node/eventloop-utilization-idle`, collectedMetrics.Eventloop.utilization.idle)
+    metricRegistry.gauge(
       `${serviceName}/node/eventloop-utilization-active`,
       collectedMetrics.Eventloop.utilization.active
     )
