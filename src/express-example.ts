@@ -26,6 +26,7 @@ const server = createServer(async function (req, res) {
 
 // Prints a log once the server starts listening
 server.listen(port, hostname, function () {
+  // eslint-disable-next-line no-console
   console.log(`Server running at http://${hostname}:${port}/`)
 })
 
